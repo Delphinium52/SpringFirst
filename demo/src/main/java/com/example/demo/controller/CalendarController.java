@@ -6,10 +6,7 @@ import com.example.demo.dto.CalResponseDto;
 import com.example.demo.entity.Calendar;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
@@ -35,4 +32,15 @@ public class CalendarController {
         CalResponseDto responseDto = new CalResponseDto(calendar);
         return responseDto;
     }
+
+    @GetMapping("/calendar/{calendarid}")
+    @ResponseBody
+    public List<CalResponseDto> getCalendar(@PathVariable int calendarid){
+            List<CalResponseDto> calendars = calendarlist.values().stream().map(CalResponseDto::new).toList();
+            Optional<CalResponseDto> option = calendars.stream().filter(x -> x.getCalendarid() == calendarid).findFirst();
+            return option.isPresent() ? Collections.singletonList(option.get()) : Collections.emptyList();
+        }
+
+
+
 }
