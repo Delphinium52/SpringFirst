@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
-import com.sparta.springproject.dto.CalRequestDto;
+import com.example.demo.dto.CalRequestDto;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,15 +15,16 @@ public class Calendar {
     private long calendarid;
     private String title;
     private String content;
-    private Date date;
-    private long userid;
-    User user = new User();
+    private String name;
+    private String pw;
+    private Date date =new Date();
 
     public Calendar(CalRequestDto requestDto) {
         this.calendarid = requestDto.getCalendarid();
         this.title = requestDto.getTitle();
         this.content = requestDto.getContent();
-        this.userid = requestDto.getUserid();
-        user = requestDto.getUser();
+        this.name = requestDto.getName();
+        this.pw = requestDto.getPw();
     }
+
 }
