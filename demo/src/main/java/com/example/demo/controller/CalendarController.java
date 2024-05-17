@@ -58,5 +58,13 @@ public class CalendarController {
         }
     }
 
-
+    @DeleteMapping("/calendar/{calendarid}")
+    public long deleteCalendar(@PathVariable Long calendarid){
+        if(calendarlist.containsKey(calendarid)){
+            calendarlist.remove(calendarid);
+            return calendarid;
+        }else {
+            throw new IllegalArgumentException("calendarid not found");
+        }
+    }
 }
