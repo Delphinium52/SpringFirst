@@ -41,6 +41,10 @@ public class CalendarController {
             return option.isPresent() ? Collections.singletonList(option.get()) : Collections.emptyList();
         }
 
-
+    @GetMapping("/calendar/calendars")
+    public List<CalResponseDto> getCalendars(){
+        List<CalResponseDto> calendars = calendarlist.values().stream().map(CalResponseDto::new).toList();
+        return calendars;
+    }
 
 }
