@@ -1,9 +1,9 @@
 
-기능       method   URL                         request                               response
-일정작성    post    api/calendar                {'title','content':content}           등록된 일정 or  성공여부
-일정조회    get     api/calendar/calendarid                                           선택한 일정 정보
-일정전체조회  get    api/calendar/calendars                                            전체일정정보
-일정삭제    delete   api/calendar               ?calendarid = {calendarid}            삭제성공 여부
-일정수정    put      api/calendar/calendarid    {'title':title,'content':content}     수정된 일정정보 or 수정성공 여부
+indet            기능        method   URL                         request                                          response
+calendar        일정작성      post     api/calendar                {'title','content':content}                      등록된 일정 or  성공여부
+                일정조회      get      api/calendar/calendarid     {calendarid}                                    선택한 일정 정보
+                일정전체조회   get      api/calendar/calendars                                                       전체일정정보
+                일정삭제      delete   api/calendar               ?calendarid = {calendarid}                         삭제성공 여부
+                일정수정      put      api/calendar/calendarid    {'title':title,'content':content,'name':name}     수정된 일정정보 or 수정성공 여부
 
 

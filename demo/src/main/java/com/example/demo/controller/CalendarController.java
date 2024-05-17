@@ -5,6 +5,7 @@ import com.example.demo.dto.CalRequestDto;
 import com.example.demo.dto.CalResponseDto;
 import com.example.demo.entity.Calendar;
 import org.springframework.web.bind.annotation.*;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.*;
 
@@ -46,5 +47,16 @@ public class CalendarController {
         List<CalResponseDto> calendars = calendarlist.values().stream().map(CalResponseDto::new).toList();
         return calendars;
     }
+    @PutMapping("/calendar/{calendarid}/title/{title}/content/{content}/name/{name}")
+    public String updateCalendar(@PathVariable long calendarid, @PathVariable String title,@PathVariable String content,@PathVariable String name){
+        if(calendarlist.containsKey(calendarid)){
+            Calendar calendar = calendarlist.get(calendarid);
+            calendar.update(title, content, name);
+            return "변경완료";
+        }else{
+            throw new IllegalArgumentException("Calendar not found");
+        }
+    }
+
 
 }

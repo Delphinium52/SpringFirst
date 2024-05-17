@@ -27,4 +27,9 @@ public class Calendar {
         this.pw = requestDto.getPw();
     }
 
+    public void update(String title, String content, String name) {
+        this.name = name;
+        this.title = title;
+        this.content = content;
+    }
 }
