@@ -2,34 +2,43 @@ package com.example.demo.entity;
 
 import com.example.demo.dto.CalRequestDto;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+@Entity
 @Getter
 @Setter
+@Table(name = "calendar")
 @NoArgsConstructor
-public class Calendar {
-    private long calendarid;
+public class Calendar extends Timestamped {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @Column(name ="title" , nullable = false)
     private String title;
+    @Column(name = "content", nullable = false)
     private String content;
+    @Column(name = "name", nullable = false)
     private String name;
-    private String pw;
-    private Date date =new Date();
 
+    @OneToMany(mappedBy = "calendar", cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Comment> commentList = new ArrayList<>();
     public Calendar(CalRequestDto requestDto) {
-        this.calendarid = requestDto.getCalendarid();
         this.title = requestDto.getTitle();
         this.content = requestDto.getContent();
         this.name = requestDto.getName();
-        this.pw = requestDto.getPw();
     }
 
-    public void update(String title, String content, String name) {
-        this.name = name;
-        this.title = title;
-        this.content = content;
+    public void update(CalRequestDto requestDto) {
+        this.name = requestDto.getName();
+        this.title = requestDto.getTitle();
+        this.content = requestDto.getContent();
     }
 }

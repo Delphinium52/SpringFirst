@@ -1,11 +1,13 @@
 package com.example.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonTypeId;
+import jakarta.persistence.*;
 
+@Entity
+@Table(name = "users")
 public class User {
-    private long userid;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
-    private String pw;
-
-
 }
