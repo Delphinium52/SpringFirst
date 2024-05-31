@@ -3,12 +3,10 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.CalRequestDto;
 import com.example.demo.dto.CalResponseDto;
-import com.example.demo.entity.Calendar;
 import com.example.demo.service.CalService;
 import org.springframework.web.bind.annotation.*;
 
-
-import java.util.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")

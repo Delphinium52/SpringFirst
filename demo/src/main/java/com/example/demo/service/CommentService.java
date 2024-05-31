@@ -1,14 +1,11 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.CalRequestDto;
-import com.example.demo.dto.CalResponseDto;
 import com.example.demo.dto.CommentRequestDto;
 import com.example.demo.dto.CommentResponseDto;
 import com.example.demo.entity.Calendar;
 import com.example.demo.entity.Comment;
 import com.example.demo.repository.CalRepository;
 import com.example.demo.repository.CommentRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

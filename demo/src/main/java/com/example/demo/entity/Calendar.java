@@ -1,15 +1,13 @@
 package com.example.demo.entity;
 
 import com.example.demo.dto.CalRequestDto;
-
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.sql.Time;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
